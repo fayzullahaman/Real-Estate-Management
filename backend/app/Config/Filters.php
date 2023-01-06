@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\Authguard;
+use App\Filters\Cors;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -23,6 +25,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'authGuard' => Authguard::class,
+        'cors' => Cors::class,
     ];
 
     /**
@@ -34,8 +38,9 @@ class Filters extends BaseConfig
     public $globals = [
         'before' => [
             // 'honeypot',
-            // 'csrf',
+            'csrf',
             // 'invalidchars',
+            'cors'
         ],
         'after' => [
             'toolbar',

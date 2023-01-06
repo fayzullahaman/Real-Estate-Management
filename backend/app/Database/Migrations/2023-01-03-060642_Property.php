@@ -20,11 +20,6 @@ class Property extends Migration
                 "constraint" => 100,
                 "null" => false,
             ],
-            "property_type" => [
-                "type" => "VARCHAR",
-                "constraint" => 50,
-                "null" => false,
-            ],
             "property_price" => [
                 "type" => "DECIMAL",
                 "constraint" => "10, 2",
@@ -43,6 +38,9 @@ class Property extends Migration
                 "type" => "DECIMAL",
                 "constraint" => "10, 2",
                 "null" => true
+            ],
+            "property_type" => [
+                "type" => "TINYINT"
             ],
             "property_details" => [
                 "type" => "VARCHAR",
