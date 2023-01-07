@@ -50,7 +50,7 @@ class Property extends ResourceController
     {
         $model = new PropertytypeModel();
         $data['types'] = $model->orderBy('type_name', 'ASC')->findAll();
-        return view('property/add_property');
+        return view('property/add_property', $data);
     }
 
     /**
@@ -159,6 +159,9 @@ class Property extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $model = new PropertyModel();
+        $model->delete($id);
+        return redirect()->to("property")->with('dlmsg', "Delete Successfully");
+        // echo "Delete";
     }
 }

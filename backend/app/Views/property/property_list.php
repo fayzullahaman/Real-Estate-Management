@@ -57,7 +57,11 @@
                            foreach ($property as $proper) {; ?>
                               <tr>
                                  <td><?= $count ?></td>
-                                 <td><img src="<?= $proper['property_image']; ?>" style="width: 90px;" alt=""></td>
+                                 <!-- <td><img src="<?php // echo $proper['property_image']; 
+                                                      ?>" style="width: 90px;" alt=""></td> -->
+                                 <td><img src="/assets/uploads/
+                                 <?php $proper['property_image'];
+                                 ?>" alt="property Image" style="width: 80px;"></td>
                                  <td><?= $proper['property_name']; ?></td>
                                  <td><?= $proper['property_type']; ?></td>
                                  <td><?= $proper['property_price']; ?></td>
@@ -65,7 +69,7 @@
                                  <td><?= $proper['property_address']; ?></td>
                                  <td>
                                     <a href="<?= site_url("/property/edit/" . $proper['id']) ?>" class="btn btn-info">Edit</a>
-                                    <a href="<?= site_url("/property/delete/" . $proper['id']) ?>" class="btn btn-danger delete">Delete</a>
+                                    <a href="<?= site_url("/property/delete/" . $proper['id']); ?>" class="btn btn-danger delete">Delete</a>
                                  </td>
                               </tr>
                            <?php $count++;
