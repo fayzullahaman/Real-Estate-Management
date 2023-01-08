@@ -113,7 +113,7 @@ class Property extends ResourceController
             // } else {
             //     $filename = 'no_image.jpg';
             // };
-            $path = "assets/uploads/";
+            $path = "/assets/uploads/";
             $img->move($path);
 
             $data['property_name'] = $this->request->getPost('property_name');
@@ -139,7 +139,11 @@ class Property extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        $model = new PropertyModel();
+        $model = new PropertytypeModel();
+        $data['types'] = $model->orderBy('type_name', 'ASC')->findAll();
+        $data['property'] = $model->find($id);
+        return view("property/edit_property", $data);
     }
 
     /**

@@ -1,44 +1,33 @@
 <?php echo view('/layouts/header.php'); ?>
-<!-- Navbar -->
-<?php echo view('/layouts/topbar.php'); ?>
-<!-- /.navbar -->
 
-<!-- Main Sidebar Container -->
+<?php echo view('/layouts/topbar.php'); ?>
+
 <?php echo view('/layouts/left_sidebar.php'); ?>
 
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-   <!-- Content Header (Page header) -->
+
    <div class="content-header">
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1 class="m-0">Edit Products</h1>
-            </div><!-- /.col -->
+               <h1 class="m-0">Edit Property</h1>
+            </div>
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                </ol>
-            </div><!-- /.col -->
-         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+            </div>
+         </div>
+      </div>
    </div>
-   <!-- /.content-header -->
-
-   <!-- Main content -->
    <section class="content">
       <div class="container-fluid">
 
-         <!-- Main row -->
          <div class="row">
-            <!-- Left col -->
             <section class="col-lg-8 offset-2">
                <div class="card card-success">
-                  <!-- /.card-header -->
-                  <!-- general form elements -->
-                  <!-- <div class="card card-info"> -->
                   <div class="card-header">
-                     <h3 class="card-title">Product Edit Form</h3>
+                     <h3 class="card-title">Property Edit Form</h3>
                      <?php
                      $errors = [];
                      if (session()->has('errors')) {
@@ -46,72 +35,78 @@
                         // print_r($errors);
                      } ?>
                   </div>
-                  <!-- /.card-header -->
-                  <!-- form start -->
-                  <form action="<?= base_url('products/update/' . $product['id']); ?>" method="post" enctype="multipart/form-data">
+
+                  <!--  -->
+                  <form action="<?= site_url('/property/update/' . $property['id']); ?>" method="post" enctype="multipart/form-data">
                      <?= csrf_field(); ?>
                      <div class="card-body">
-                        <?php
-                        // if (isset($errors) && count($errors) > 0) {
-                        //    echo "<ul>";
-                        //    foreach ($errors as $err) {
-                        //       echo "<li>$err</li>";
-                        //    }
-                        //    echo "</ul>";
-                        // }
-                        ?>
                         <div class="form-group">
-                           <label>Product Name</label>
-                           <input type="text" name="product_name" class="form-control" value="<?= old('product_name') ? old('product_name') : $product['product_name']; ?>" placeholder="Enter Product email">
+                           <label>Property Name</label>
+                           <input type="text" name="property_name" class="form-control" value="<?= old('property_name') ? old('property_name') : $property['property_name']; ?>" <span class="text-danger">
+                           <?=
+                           isset($errors['property_name']) ? $errors['property_name'] : '';
+                           ?>
+                           </span>
+                           <input type="text" name="property_name" class="form-control" value="<?= old('property_name') ?>" placeholder="Enter Product email">
                            <span class="text-danger">
-                              <?=
-                              isset($errors['product_name']) ? $errors['product_name'] : '';
-                              ?>
+                              <?= isset($errors['property_name']) ? $errors['property_name'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
-                           <label>Product Details</label>
-                           <textarea type="text" id="summernote" name="product_details" class="form-control" placeholder="Enter Product Details"><?= old('product_details') ? old('product_details') : $product['product_details']; ?></textarea>
+                           <label>Property Price</label>
+                           <input type="text" name="property_price" class="form-control" value="<?= old('property_price') ?>" placeholder="Enter Product Price">
                            <span class="text-danger">
-                              <?=
-                              isset($errors['product_details']) ? $errors['product_details'] : '';
-                              ?>
+                              <?= isset($errors['property_price']) ? $errors['property_price'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
-                           <label>Product Price</label>
-                           <input type="text" name="product_price" class="form-control" value="<?= old('product_price') ? old('product_price') : $product['product_price']; ?>" placeholder="Enter Product Price">
+                           <label>Property Image</label>
+                           <input type="file" name="property_image" class="form-control" value="<?= old('property_image') ?>">
                            <span class="text-danger">
-                              <?=
-                              isset($errors['product_price']) ? $errors['product_price'] : '';
-                              ?>
+                              <?= isset($errors['property_image']) ? $errors['property_image'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
-                           <label>Product Image</label>
-                           <input type="file" name="product_image" class="form-control">
+                           <label>Property Address</label>
+                           <input type="text" name="property_address" class="form-control" value="<?= old('property_address') ?>">
                            <span class="text-danger">
-                              <?=
-                              isset($errors['product_image']) ? $errors['product_image'] : '';
-                              ?>
+                              <?= isset($errors['property_address']) ? $errors['property_address'] : '' ?>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label>Property Size</label>
+                           <input type="number" name="property_size" class="form-control" value="<?= old('property_size') ?>">
+                           <span class="text-danger">
+                              <?= isset($errors['property_size']) ? $errors['property_size'] : '' ?>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label>Property Type</label>
+                           <select name="prop_type" class="form-control">
+                              <option value="" selected>Select One</option>
+                              <?php foreach ($types as $type) : ?>
+                                 <option value="<?= $type['id']; ?>"><?= $type['type_name']; ?>
+                                 </option>
+                              <?php endforeach ?>
+                           </select>
+                        </div>
+                        <div class="form-group">
+                           <label>Property Details</label>
+                           <textarea type="text" id="summernote" name="property_details" class="form-control" placeholder="Enter Product Details"><?= old('property_details') ?></textarea>
+                           <span class="text-danger">
+                              <?= isset($errors['property_details']) ? $errors['property_details'] : '' ?>
                            </span>
                         </div>
                      </div>
                      <div class="card-footer">
-                        <button type="submit" class="btn btn-success" onclick="return confirm('Product Update Successfully')">Upadte</button>
+                        <button type="submit" class="btn btn-info" onclick="return confirm('Property Added Successfully')">Submit</button>
                      </div>
                   </form>
-                  <!-- </div> -->
                </div>
             </section>
-
-            <!-- right col -->
          </div>
-         <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
    </section>
-   <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 
 <?php echo view('/layouts/footer.php'); ?>

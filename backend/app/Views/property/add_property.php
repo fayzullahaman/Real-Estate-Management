@@ -32,7 +32,7 @@
                   <div class="card-header">
                      <h3 class="card-title">Property Entry Form</h3>
                   </div>
-                  <form action="<?= base_url('/property/create'); ?>" method="post" enctype="multipart/form-data">
+                  <form action="<?= site_url('/property/create'); ?>" method="post" enctype="multipart/form-data">
                      <?= csrf_field(); ?>
                      <div class="card-body">
                         <div class="form-group">

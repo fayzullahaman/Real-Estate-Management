@@ -47,6 +47,7 @@
                               <th>Price</th>
                               <th>Size</th>
                               <th>Address</th>
+                              <!-- <th>Details</th> -->
                               <th>Action</th>
                            </tr>
                         </thead>
@@ -59,17 +60,20 @@
                                  <td><?= $count ?></td>
                                  <!-- <td><img src="<?php // echo $proper['property_image']; 
                                                       ?>" style="width: 90px;" alt=""></td> -->
-                                 <td><img src="/assets/uploads/
-                                 <?php $proper['property_image'];
-                                 ?>" alt="property Image" style="width: 80px;"></td>
+                                 <td><img src="<?= $proper['property_image']; ?>" style="width: 90px;" alt="asdf"></td>
                                  <td><?= $proper['property_name']; ?></td>
                                  <td><?= $proper['property_type']; ?></td>
                                  <td><?= $proper['property_price']; ?></td>
                                  <td><?= $proper['property_size']; ?></td>
                                  <td><?= $proper['property_address']; ?></td>
-                                 <td>
+                                 <!-- <td><?php //echo $proper['property_details']; 
+                                          ?></td> -->
+                                 <td class="d-flex justify-content-between">
                                     <a href="<?= site_url("/property/edit/" . $proper['id']) ?>" class="btn btn-info">Edit</a>
-                                    <a href="<?= site_url("/property/delete/" . $proper['id']); ?>" class="btn btn-danger delete">Delete</a>
+                                    <form method="post" action="<?= site_url("/property/delete/" . $proper['id']) ?>">
+                                       <?= csrf_field(); ?>
+                                       <button onclick="return confirm('Are you sure you want to')" class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                  </td>
                               </tr>
                            <?php $count++;
@@ -85,6 +89,7 @@
                               <th>Price</th>
                               <th>Size</th>
                               <th>Address</th>
+                              <!-- <th>Details</th> -->
                               <th>Action</th>
                            </tr>
                         </tfoot>
@@ -101,7 +106,7 @@
 
 <?php echo view('layouts/footer1.php'); ?>
 
-<script>
+<!-- <script>
    $(function() {
       $(".delete").click(function(e) {
          e.preventDefault();
@@ -111,4 +116,4 @@
          });
       });
    });
-</script>
+</script> -->
