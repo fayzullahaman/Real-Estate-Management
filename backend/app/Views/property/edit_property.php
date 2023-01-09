@@ -42,64 +42,61 @@
                      <div class="card-body">
                         <div class="form-group">
                            <label>Property Name</label>
-                           <input type="text" name="property_name" class="form-control" value="<?= old('property_name') ? old('property_name') : $property['property_name']; ?>" <span class="text-danger">
-                           <?=
-                           isset($errors['property_name']) ? $errors['property_name'] : '';
-                           ?>
-                           </span>
-                           <input type="text" name="property_name" class="form-control" value="<?= old('property_name') ?>" placeholder="Enter Product email">
+                           <input type="text" name="property_name" class="form-control" value="<?= old('property_name') ? old('property_name') : $property['property_name']; ?>">
                            <span class="text-danger">
-                              <?= isset($errors['property_name']) ? $errors['property_name'] : '' ?>
+                              <?=
+                              isset($errors['property_name']) ? $errors['property_name'] : '';
+                              ?>
                            </span>
                         </div>
                         <div class="form-group">
                            <label>Property Price</label>
-                           <input type="text" name="property_price" class="form-control" value="<?= old('property_price') ?>" placeholder="Enter Product Price">
+                           <input type="text" name="property_price" class="form-control" value="<?= old('property_price') ? old('property_price') : $property['property_price']; ?>">
                            <span class="text-danger">
                               <?= isset($errors['property_price']) ? $errors['property_price'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
+                           <label for="type">Property Type: </label>
+                           <select name="prop_type">
+                              <option value="" selected disabled>Select One</option>
+                              <?php foreach ($types as $type) : ?>
+                                 <option value="<?= $type['id']; ?>" <?= ($property['property_type'] == $type['id']) ? "selected" : "" ?>><?= $type['type_name'] ?></option>
+                              <?php endforeach; ?>
+                           </select>
+                        </div>
+                        <div class="form-group">
                            <label>Property Image</label>
-                           <input type="file" name="property_image" class="form-control" value="<?= old('property_image') ?>">
+                           <input type="file" name="property_image" class="form-control">
                            <span class="text-danger">
                               <?= isset($errors['property_image']) ? $errors['property_image'] : '' ?>
                            </span>
+                           <img style="width: 100px;" src="<?= site_url() . $property['property_image']; ?>" alt="">
                         </div>
                         <div class="form-group">
                            <label>Property Address</label>
-                           <input type="text" name="property_address" class="form-control" value="<?= old('property_address') ?>">
+                           <input type="text" name="property_address" class="form-control" value="<?= old('property_address') ? old('property_address') : $property['property_address']; ?>">
                            <span class="text-danger">
                               <?= isset($errors['property_address']) ? $errors['property_address'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
                            <label>Property Size</label>
-                           <input type="number" name="property_size" class="form-control" value="<?= old('property_size') ?>">
+                           <input type="number" name="property_size" class="form-control" value="<?= old('property_size') ? old('property_size') : $property['property_size']; ?>">
                            <span class="text-danger">
                               <?= isset($errors['property_size']) ? $errors['property_size'] : '' ?>
                            </span>
                         </div>
                         <div class="form-group">
-                           <label>Property Type</label>
-                           <select name="prop_type" class="form-control">
-                              <option value="" selected>Select One</option>
-                              <?php foreach ($types as $type) : ?>
-                                 <option value="<?= $type['id']; ?>"><?= $type['type_name']; ?>
-                                 </option>
-                              <?php endforeach ?>
-                           </select>
-                        </div>
-                        <div class="form-group">
                            <label>Property Details</label>
-                           <textarea type="text" id="summernote" name="property_details" class="form-control" placeholder="Enter Product Details"><?= old('property_details') ?></textarea>
+                           <textarea type="text" id="summernote" name="property_details" class="form-control" placeholder="Enter Product Details"><?= old('property_details') ? old('property_details') : $property['property_details']; ?></textarea>
                            <span class="text-danger">
                               <?= isset($errors['property_details']) ? $errors['property_details'] : '' ?>
                            </span>
                         </div>
                      </div>
                      <div class="card-footer">
-                        <button type="submit" class="btn btn-info" onclick="return confirm('Property Added Successfully')">Submit</button>
+                        <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure you want to')">Update</button>
                      </div>
                   </form>
                </div>
