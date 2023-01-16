@@ -73,7 +73,7 @@
                         <div class="form-group">
                            <label>Property Type</label>
                            <select name="prop_type" class="form-control">
-                              <option value="" selected>Select One</option>
+                              <option value="" selected disabled>Select One</option>
                               <?php foreach ($types as $type) : ?>
                                  <option value="<?= $type['id']; ?>"><?= $type['type_name']; ?>
                                  </option>
