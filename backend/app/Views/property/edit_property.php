@@ -71,7 +71,7 @@
                            <span class="text-danger">
                               <?= isset($errors['property_image']) ? $errors['property_image'] : '' ?>
                            </span>
-                           <img style="width: 100px;" src="<?= site_url() . $property['property_image']; ?>" alt="">
+                           <img style="width: 100px" src="<?= site_url($property['property_image']) ?>" alt="">
                         </div>
                         <div class="form-group">
                            <label>Property Address</label>

@@ -108,7 +108,7 @@ class Property extends ResourceController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
             $img = $this->request->getFile('property_image');
-            $path = "/assets/uploads/";
+            $path = "assets/uploads/";
             $img->move($path);
 
             $data['property_name'] = $this->request->getPost('property_name');
@@ -165,7 +165,7 @@ class Property extends ResourceController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         } else {
             $img = $this->request->getFile('property_image');
-            $path = "/assets/uploads/";
+            $path = "assets/uploads/";
             $img->move($path);
 
             $data['property_name'] = $this->request->getPost('property_name');

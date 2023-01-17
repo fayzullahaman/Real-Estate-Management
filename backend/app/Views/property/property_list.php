@@ -60,7 +60,7 @@
                                  <td><?= $count ?></td>
                                  <!-- <td><img src="<?php // echo $proper['property_image']; 
                                                       ?>" style="width: 90px;" alt=""></td> -->
-                                 <td><img src="<?= $proper['property_image']; ?>" style="width: 90px;" alt="asdf"></td>
+                                 <td><img src="<?= $proper['property_image']; ?>" style="width: 90px; height: 60px" alt="No Image"></td>
                                  <td><?= $proper['property_name']; ?></td>
                                  <td><?= $proper['property_type']; ?></td>
                                  <td><?= $proper['property_price']; ?></td>
