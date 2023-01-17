@@ -37,15 +37,19 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
-$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
-$routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
-$routes->presenter('property', ['filter' => 'authGuard']);
+$routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
+$routes->group('', ['filter' => 'authGuard'], static function ($routes) {
+    $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
+    $routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
+    $routes->presenter('property', ['filter' => 'authGuard']);
+    $routes->presenter('users', ['filter' => 'authGuard']);
+});
 
-$routes->get('/users/signup', 'SignupController::index');
-$routes->post('/users/store', 'SignupController::store', ['filter' => 'authGuard']);
-$routes->get('/users/signin', 'SigninController::index');
-$routes->post('/users/login', 'SigninController::auth');
-$routes->get('/users/logout', 'SigninController::logout');
+$routes->get('/users/signup', 'Signup::index');
+$routes->post('/users/store', 'Signup::store');
+$routes->get('/users/signin', 'Signin::index');
+$routes->post('/users/login', 'Signin::auth');
+$routes->get('/users/logout', 'Signin::logout');
 $routes->get('/frontend/property', 'Frontend::PropertyList');
 $routes->get('/frontend/users', 'Frontend::UsersList');
 

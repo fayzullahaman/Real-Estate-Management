@@ -22,21 +22,19 @@
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Dashboard v1</li>
+                  <li class="breadcrumb-item active">Dashboard</li>
                </ol>
             </div>
          </div>
       </div>
    </div>
-   <!-- /.content-header -->
 
-   <!-- Main content -->
    <section class="content">
       <div class="container-fluid">
-         <!-- Small boxes (Stat box) -->
+
          <div class="row">
             <div class="col-lg-3 col-6">
-               <!-- small box -->
+
                <div class="small-box bg-info">
                   <div class="inner">
                      <h3>150</h3>
@@ -96,28 +94,17 @@
             </div>
             <!-- ./col -->
          </div>
-         <!-- /.row -->
-         <!-- Main row -->
+
          <div class="row">
             <!-- Left col -->
             <section class="col-lg-12 connectedSortable">
                <!-- Custom tabs (Charts with tabs)-->
                <div class="card">
-                  <div class="card-header">
-
-                  </div><!-- /.card-header -->
-                  <div class="card-body">
-                     <div class="tab-content p-0">
-                        <!-- Morris chart - Sales -->
-                        <div class="text-center">
-                           <h1>Welcome to Dashboard</h1>
-                        </div>
-
-                     </div>
-                  </div><!-- /.card-body -->
+                  <!-- <br>
+                  <h2 class="text-center" style="color: gray; background:aqua">Welcome to Real Estate Field</h2>
+                  <br> -->
+                  <img src="/assets/dist/img/real-estate.jpg" alt="">
                </div>
-               <!-- /.card -->
-               <!-- /.card -->
             </section>
 
             <!-- right col -->
