@@ -2,22 +2,101 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function Property_list() {
-
   const [property, setProperty] = useState([]);
+
   // console.log(propertyType);
-  useEffect(() => {    
+  useEffect(() => {
     getProperty();
   }, []);
 
   const getProperty = async () => {
-    const result = await axios.get("http://localhost:8080/frontend/propertylist");
+    const result = await axios.get(
+      "http://localhost:8080/frontend/propertylist"
+    );
     setProperty(result.data);
-}
+  };
+
+  const [searchProp, setSearchProp] = useState("");
+
+  useEffect(() => {
+    getSearchProp();
+  }, []);
+
+  const handleSearch = (event) => {
+    setSearchProp(event.target.value);
+  };
+  const searchProp = filteredMenu.filter(
+    (prop) =>
+      prop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      prop.price.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      prop.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  // Searching
+
+  const getSearchProp = async () => {
+    const result = await axios.get(
+      "http://localhost:8080/frontend/propertylist"
+    );
+    setProperty(result.data);
+  };
 
   return (
     <div>
       <div className="container-xxl py-5">
         <div className="container">
+          {/* <!-- Search Start --> */}
+          <div
+            className="container-fluid bg-primary mb-5 wow fadeIn"
+            data-wow-delay="0.1s"
+            style={{ padding: "35px" }}
+          >
+            <div className="container">
+              <div className="row g-2">
+                <div className="col-md-10">
+                  <div className="row g-2">
+                    <div className="col-md-4">
+                      <input
+                        type="text"
+                        className="form-control border-0 py-3"
+                        placeholder="Search Keyword"
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <select className="form-select border-0 py-3">
+                        <option selected disabled>
+                          Property Type
+                        </option>
+                        {property.map((type, index) => (
+                          <option value={type.id}>{type.type_name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="col-md-4">
+                      <select className="form-select border-0 py-3">
+                        <option selected disabled>
+                          Property Location
+                        </option>
+                        {property.map((prop, index) => (
+                          <option value={prop.id}>
+                            {prop.property_address}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-2">
+                  <button
+                    onClick={searchitem}
+                    className="btn btn-dark border-0 w-100 py-3"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <!-- Search End --> */}
           <div className="row g-0 gx-5 align-items-end">
             <div className="col-lg-6">
               <div
@@ -70,54 +149,55 @@ export default function Property_list() {
           <div className="tab-content">
             <div id="tab-1" className="tab-pane fade show p-0 active">
               <div className="row g-4">
-                {property.map((prop, item)=>(
-                <div
-                  className="col-lg-4 col-md-6 wow fadeInUp"
-                  data-wow-delay="0.1s"
-                >
-                  <div className="property-item rounded overflow-hidden">
-                    <div className="position-relative overflow-hidden">
-                      <a href="">
-                        <img
-                          className="img-fluid"
-                          src="/assets/img/property-1.jpg"
-                          alt=""
-                        />
-                      </a>
-                      <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
-                        For Sell
+                {property.map((prop, item) => (
+                  <div
+                    className="col-lg-4 col-md-6 wow fadeInUp"
+                    data-wow-delay="0.1s"
+                  >
+                    <div className="property-item rounded overflow-hidden">
+                      <div className="position-relative overflow-hidden">
+                        <a href="">
+                          <img
+                            className="img-fluid"
+                            src="/assets/img/property-1.jpg"
+                            alt=""
+                          />
+                        </a>
+                        <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                          For Sell
+                        </div>
+
+                        <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                          {prop.type_name}
+                        </div>
                       </div>
-                      
-                      <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
-                        {prop.type_name}
+                      <div className="p-4 pb-0">
+                        <h5 className="text-primary mb-3">
+                          TK:{prop.property_price}
+                        </h5>
+                        <a className="d-block h5 mb-2" href="">
+                          {prop.property_details}
+                        </a>
+                        <p>
+                          <i className="fa fa-map-marker-alt text-primary me-2"></i>
+                          {prop.property_address}
+                        </p>
                       </div>
-                      
-                    </div>
-                    <div className="p-4 pb-0">
-                      <h5 className="text-primary mb-3">TK:{prop.property_price}</h5>
-                      <a className="d-block h5 mb-2" href="">
-                      {prop.property_details}
-                      </a>
-                      <p>
-                        <i className="fa fa-map-marker-alt text-primary me-2"></i>
-                        {prop.property_address}
-                      </p>
-                    </div>
-                    <div className="d-flex border-top">
-                      <small className="flex-fill text-center border-end py-2">
-                        <i className="fa fa-ruler-combined text-primary me-2"></i>
-                        {prop.property_size}
-                      </small>
-                      <small className="flex-fill text-center border-end py-2">
-                        <i className="fa fa-bed text-primary me-2"></i>3 Bed
-                      </small>
-                      <small className="flex-fill text-center py-2">
-                        <i className="fa fa-bath text-primary me-2"></i>2 Bath
-                      </small>
+                      <div className="d-flex border-top">
+                        <small className="flex-fill text-center border-end py-2">
+                          <i className="fa fa-ruler-combined text-primary me-2"></i>
+                          {prop.property_size}
+                        </small>
+                        <small className="flex-fill text-center border-end py-2">
+                          <i className="fa fa-bed text-primary me-2"></i>3 Bed
+                        </small>
+                        <small className="flex-fill text-center py-2">
+                          <i className="fa fa-bath text-primary me-2"></i>2 Bath
+                        </small>
+                      </div>
                     </div>
                   </div>
-                </div>
-                ))}               
+                ))}
               </div>
             </div>
             <div id="tab-2" className="tab-pane fade show p-0">

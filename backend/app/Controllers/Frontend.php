@@ -12,14 +12,20 @@ class Frontend extends BaseController
     use ResponseTrait;
     public function PropertytypeList()
     {
+        $db = db_connect('default');
         $typemodel = new PropertytypeModel();
         $propertytype = $typemodel->orderBy('type_name', "ASC")->findAll();
         return $this->respond($propertytype);
     }
     public function PropertyList()
     {
-        $propmodel = new PropertyModel();
-        $property = $propmodel->findAll();
-        return $this->respond($property);
+        $db = db_connect('default');
+        $builder = $db->table('properties, propertytypes')->where('properties.property_type = propertytypes.id');
+        $data = $builder->get()->getResult();
+        // echo "<pre>";
+        // print_r($data);
+        // $propmodel = new PropertyModel();
+        // $property = $propmodel->findAll();
+        return $this->respond($data);
     }
 }

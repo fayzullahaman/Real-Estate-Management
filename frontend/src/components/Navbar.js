@@ -81,7 +81,7 @@ export default function Navbar() {
               </Link>
             </div>
             <a
-              href="realestate.bdprogrammers.com"
+              href="http://localhost:8080/auth/signin"
               className="btn btn-primary px-3 d-none d-lg-flex"
             >
               Admin Panel

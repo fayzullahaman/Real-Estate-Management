@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
-class UesrsController extends ResourceController
+class Contacts extends ResourceController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -13,7 +13,7 @@ class UesrsController extends ResourceController
      */
     public function index()
     {
-        echo "hello";
+        //
     }
 
     /**

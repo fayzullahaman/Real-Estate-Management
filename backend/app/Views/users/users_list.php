@@ -46,7 +46,7 @@
                         <tbody>
                            <?php
                            $count = 1;
-                           foreach ($users as $user) {; ?>
+                           foreach ($users as $user) { ?>
                               <tr>
                                  <td><?= $count ?></td>
                                  <td><img src="" alt="No Image"></td>
@@ -85,15 +85,3 @@
 
 
 <?php echo view('layouts/footer1.php'); ?>
-
-<!-- <script>
-   $(function() {
-      $(".delete").click(function(e) {
-         e.preventDefault();
-         $.post(this.href, function() {
-            alert('Successfully Deleted');
-            location.reload();
-         });
-      });
-   });
-</script> -->
