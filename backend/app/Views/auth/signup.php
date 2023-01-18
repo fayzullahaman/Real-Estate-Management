@@ -19,7 +19,7 @@
                   <?= $validation->listErrors() ?>
                </div>
             <?php endif; ?>
-            <form action="<?= base_url("/users/store"); ?>" method="post">
+            <form action="<?= base_url("/auth/store"); ?>" method="post">
                <?= csrf_field() ?>
                <div class="form-group mb-3">
                   <input type="text" name="name" placeholder="Name" value="<?= set_value('name') ?>" class="form-control">
@@ -34,7 +34,7 @@
                   <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form-control">
                </div>
                <div class="d-grid">
-                  <button type="submit" class="btn btn-success" onclick="return confirm('User Added Successfully')">Signup</button>
+                  <button type="submit" class="btn btn-success">Signup</button>
                </div>
             </form>
          </div>

@@ -14,7 +14,7 @@ class PropertytypeModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["type_name"];
+    protected $allowedFields    = ['type_name', 'type_icon'];
 
     // Dates
     protected $useTimestamps = false;

@@ -12,17 +12,17 @@ class UsersSeeder extends Seeder
             [
                 'name' => 'Fayzullah Aman',
                 'email' => 'aman@gmail.com',
-                'password' => '1234',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
             ],
             [
                 'name' => 'Anamul Islam',
                 'email' => 'anam@gmail.com',
-                'password' => '1234',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
             ],
             [
                 'name' => 'Alauddin Alo',
                 'email' => 'alo@gmail.com',
-                'password' => '1234',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
             ],
         ];
 

@@ -1,18 +1,16 @@
 <?php include('layouts/header.php'); ?>
-<!-- Preloader -->
+
 <div class="preloader flex-column justify-content-center align-items-center">
    <img class="animation__shake" src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
 </div>
-<!-- Navbar -->
-<?php include('layouts/topbar.php'); ?>
-<!-- /.navbar -->
 
-<!-- Main Sidebar Container -->
+<?php include('layouts/topbar.php'); ?>
+
 <?php include('layouts/left_sidebar.php'); ?>
 
-<!-- Content Wrapper. Contains page content -->
+
 <div class="content-wrapper">
-   <!-- Content Header (Page header) -->
+
    <div class="content-header">
       <div class="container-fluid">
          <div class="row mb-2">
@@ -47,9 +45,9 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
-            <!-- ./col -->
+
             <div class="col-lg-3 col-6">
-               <!-- small box -->
+
                <div class="small-box bg-success">
                   <div class="inner">
                      <h3>53<sup style="font-size: 20px">%</sup></h3>
@@ -62,9 +60,9 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
-            <!-- ./col -->
+
             <div class="col-lg-3 col-6">
-               <!-- small box -->
+
                <div class="small-box bg-warning">
                   <div class="inner">
                      <h3>44</h3>
@@ -77,9 +75,9 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
-            <!-- ./col -->
+
             <div class="col-lg-3 col-6">
-               <!-- small box -->
+
                <div class="small-box bg-danger">
                   <div class="inner">
                      <h3>65</h3>
@@ -92,13 +90,13 @@
                   <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
-            <!-- ./col -->
+
          </div>
 
          <div class="row">
-            <!-- Left col -->
+
             <section class="col-lg-12 connectedSortable">
-               <!-- Custom tabs (Charts with tabs)-->
+
                <div class="card">
                   <!-- <br>
                   <h2 class="text-center" style="color: gray; background:aqua">Welcome to Real Estate Field</h2>
@@ -107,13 +105,13 @@
                </div>
             </section>
 
-            <!-- right col -->
+
          </div>
-         <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+
+      </div>
    </section>
-   <!-- /.content -->
+
 </div>
-<!-- /.content-wrapper -->
+
 
 <?php include('layouts/footer.php'); ?>

@@ -32,7 +32,7 @@ class Signup extends BaseController
             ];
             $userModel->save($data);
             // print_r($data);
-            return redirect()->to('users/signin');
+            return redirect()->to('auth/signin');
             echo "Rgitration Completed";
         } else {
             $data['validation'] = $this->validator;

@@ -48,6 +48,6 @@ class Signin extends BaseController
         $session = session();
         $session->destroy();
         // print_r($_SESSION);
-        return redirect()->to("/users/signin");
+        return redirect()->to("auth/signin");
     }
 }

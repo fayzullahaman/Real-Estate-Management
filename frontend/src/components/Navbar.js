@@ -80,12 +80,12 @@ export default function Navbar() {
                 Contact
               </Link>
             </div>
-            <Link
-              to="/contact"
+            <a
+              href="realestate.bdprogrammers.com"
               className="btn btn-primary px-3 d-none d-lg-flex"
             >
-              Add Property
-            </Link>
+              Admin Panel
+            </a>
           </div>
         </nav>
       </div>

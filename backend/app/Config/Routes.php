@@ -37,7 +37,7 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
-$routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
+// $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
 $routes->group('', ['filter' => 'authGuard'], static function ($routes) {
     $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
     $routes->get('/', 'Dashboard::index', ['filter' => 'authGuard']);
@@ -45,12 +45,15 @@ $routes->group('', ['filter' => 'authGuard'], static function ($routes) {
     $routes->presenter('users', ['filter' => 'authGuard']);
 });
 
-$routes->get('/users/signup', 'Signup::index');
-$routes->post('/users/store', 'Signup::store');
-$routes->get('/users/signin', 'Signin::index');
-$routes->post('/users/login', 'Signin::auth');
-$routes->get('/users/logout', 'Signin::logout');
-$routes->get('/frontend/property', 'Frontend::PropertyList');
+// $routes->get('/users', 'UserController::index', ['filter' => 'authGuard']);
+// $routes->post('/users/delete', 'UserController::delete', ['filter' => 'authGuard']);
+$routes->get('/auth/signup', 'Signup::index');
+$routes->post('/auth/store', 'Signup::store');
+$routes->get('/auth/signin', 'Signin::index');
+$routes->post('/auth/login', 'Signin::auth');
+$routes->get('/auth/logout', 'Signin::logout');
+$routes->get('/frontend/propertytype', 'Frontend::PropertytypeList');
+$routes->get('/frontend/propertylist', 'Frontend::PropertyList');
 $routes->get('/frontend/users', 'Frontend::UsersList');
 
 /*

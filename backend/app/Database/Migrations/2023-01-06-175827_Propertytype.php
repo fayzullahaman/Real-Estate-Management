@@ -21,6 +21,11 @@ class Propertytype extends Migration
                 "constraint" => 50,
                 "null" => false,
             ],
+            "type_icon" => [
+                "type" => "VARCHAR",
+                "constraint" => 50,
+                "null" => false,
+            ],
             "creattime" => [
                 "type" => "TIMESTAMP",
                 "default" => new RawSql('CURRENT_TIMESTAMP'),

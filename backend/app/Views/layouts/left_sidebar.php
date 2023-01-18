@@ -140,16 +140,10 @@
                         <p>All Users</p>
                      </a>
                   </li>
-                  <li class="nav-item">
-                     <a href="<?php echo base_url("users/new") ?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>New Users</p>
-                     </a>
-                  </li>
                </ul>
             </li>
             <li class="nav-item">
-               <a href="<?= site_url('/users/logout') ?>" class="nav-link">
+               <a href="<?= site_url('/auth/logout') ?>" class="nav-link">
                   <i class="nav-icon fas fa-chart-pie"></i>
                   <p>
                      Logout
@@ -158,7 +152,5 @@
             </li>
          </ul>
       </nav>
-      <!-- /.sidebar-menu -->
    </div>
-   <!-- /.sidebar -->
 </aside>

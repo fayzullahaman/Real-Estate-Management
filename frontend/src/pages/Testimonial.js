@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import OwlCarousel from "react-owl-carousel";
 
 export default function Testimonial() {
   const [products, setProducts] = useState([]);
@@ -14,27 +15,89 @@ export default function Testimonial() {
   };
 
   return (
+    
+    <div className="container-xxl py-5">
     <div className="container">
-      <div className="row g-4">
-        {products.map((product, index) => (
-          <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div className="team-item rounded overflow-hidden">
-              <div className="position-relative">
+      <div
+        className="text-center mx-auto mb-5 wow fadeInUp"
+        data-wow-delay="0.1s"
+        style={{ maxWidth: "600px" }}
+      >
+        <h1 className="mb-3">Our Clients Say!</h1>
+        <p>
+          Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut
+          dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo
+          sed rebum vero dolor duo.
+        </p>
+      </div>
+      <div
+        className="testimonial-carousel wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
+        <OwlCarousel items={2} className="owl-theme" loop autoplay={true}>
+          <div className="testimonial-item bg-light rounded p-3">
+            <div className="bg-white border rounded p-4">
+              <p>
+                Tempor stet labore dolor clita stet diam amet ipsum dolor
+                duo ipsum rebum stet dolor amet diam stet. Est stet ea
+                lorem amet est kasd kasd erat eos
+              </p>
+              <div className="d-flex align-items-center">
                 <img
-                  className="img-fluid"
-                  src={`http://localhost:8080/${product.product_image}`}
-                  alt=""
-                  style={{ width: "300px", height: "180px" }}
+                  className="img-fluid flex-shrink-0 rounded"
+                  src="/assets/img/testimonial-1.jpg"
+                  style={{ width: "45px", height: "45px" }}
                 />
-              </div>
-              <div className="text-center p-4">
-                <h5 className="fw-bold mb-0">{product.product_name}</h5>
-                <small>Designation</small>
+                <div className="ps-3">
+                  <h6 className="fw-bold mb-1">Client Name</h6>
+                  <small>Profession</small>
+                </div>
               </div>
             </div>
           </div>
-        ))}
+          <div className="testimonial-item bg-light rounded p-3">
+            <div className="bg-white border rounded p-4">
+              <p>
+                Tempor stet labore dolor clita stet diam amet ipsum dolor
+                duo ipsum rebum stet dolor amet diam stet. Est stet ea
+                lorem amet est kasd kasd erat eos
+              </p>
+              <div className="d-flex align-items-center">
+                <img
+                  className="img-fluid flex-shrink-0 rounded"
+                  src="/assets/img/testimonial-2.jpg"
+                  style={{ width: "45px", height: "45px" }}
+                />
+                <div className="ps-3">
+                  <h6 className="fw-bold mb-1">Client Name</h6>
+                  <small>Profession</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="testimonial-item bg-light rounded p-3">
+            <div className="bg-white border rounded p-4">
+              <p>
+                Tempor stet labore dolor clita stet diam amet ipsum dolor
+                duo ipsum rebum stet dolor amet diam stet. Est stet ea
+                lorem amet est kasd kasd erat eos
+              </p>
+              <div className="d-flex align-items-center">
+                <img
+                  className="img-fluid flex-shrink-0 rounded"
+                  src="/assets/img/testimonial-3.jpg"
+                  style={{ width: "45px", height: "45px" }}
+                />
+                <div className="ps-3">
+                  <h6 className="fw-bold mb-1">Client Name</h6>
+                  <small>Profession</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </OwlCarousel>
       </div>
     </div>
+  </div>  
   );
 }
